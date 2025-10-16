@@ -3,17 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multi Language Translator</title>
-</head>
-<body>
-    <h1>Welcome to Multi Language Translator</h1>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sarvam AI Translator</title>
     <style>
         * {
@@ -339,12 +328,14 @@
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'api-subscription-key': apiKey
+                        'API-Subscription-Key': apiKey
                     },
                     body: JSON.stringify({
                         input: inputText,
-                        source_language_code: sourceLanguage,
+                        source_language_code: sourceLanguage === 'auto' ? 'auto' : sourceLanguage,
                         target_language_code: targetLanguage,
+                        speaker_gender: 'Male',
+                        mode: 'formal',
                         model: 'mayura:v1',
                         enable_preprocessing: true
                     })
